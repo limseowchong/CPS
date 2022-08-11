@@ -1,5 +1,32 @@
 {% extends "cps/layout.html" %}
 
 {% block body %}
-    
+    <div style="padding:10px; margin:15px;text-align:center;">
+        <h2>Module List</h2>
+        <hr>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col" class="col-4">Module Name</th>
+                    <th scope="col" class="col-4">Section</th>
+                    <th scope="col" class="col-4">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for module in modules %}
+                <tr>
+                    <td class="col-4">{{ module.name }}</td>
+                    <td class="col-4">{{ module.section_id }}</td>
+                    <td class="col-4">
+                        <button type="button" class="btn btn-primary">Select</button>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% if modules %}
+        {% else %}
+            <h1 style="color:gray;">No Modules Found</h1>
+        {% endif %}
+    </div>
 {% endblock %}
