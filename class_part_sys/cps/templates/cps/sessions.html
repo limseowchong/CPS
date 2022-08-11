@@ -1,0 +1,30 @@
+{% extends "cps/layout.html" %}
+
+{% block body %}
+    <div style="padding:10px; margin:15px;text-align:center;">
+        <h2>Sessions List</h2>
+        <hr>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col" class="col-4">Date</th>
+                    <th scope="col" class="col-4">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for session in sessions %}
+                <tr>
+                    <td class="col-6">{{ session.name }}</td>
+                    <td class="col-6">
+                        <a class="btn btn-primary" href="{% url 'session' module.id %}" role="button">Select</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% if sessions %}
+        {% else %}
+            <h1 style="color:gray;">No Sessions Found</h1>
+        {% endif %}
+    </div>
+{% endblock %}
