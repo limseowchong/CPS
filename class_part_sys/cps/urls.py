@@ -4,5 +4,6 @@ from . import views
 
 urlpatterns = [
     path('', views.index, name="index"),
-    path('session/<int:module_id>', views.sessions, name="sessions"),
+    path('<int:module_id>', views.sessions, name="sessions"),
+    path('<int:module_id>/generate', views.generate_session, name="generate")
 ]

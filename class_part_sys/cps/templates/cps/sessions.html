@@ -4,6 +4,7 @@
     <div style="padding:10px; margin:15px;text-align:center;">
         <h2>Sessions List</h2>
         <hr>
+        <a class="btn btn-primary" href="{% url 'generate' module.id %}" role="button">Generate Session</a>
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -14,9 +15,9 @@
             <tbody>
                 {% for session in sessions %}
                 <tr>
-                    <td class="col-6">{{ session.name }}</td>
+                    <td class="col-6">{{ session.date }}</td>
                     <td class="col-6">
-                        <a class="btn btn-primary" href="{% url 'session' module.id %}" role="button">Select</a>
+                        <a class="btn btn-primary" href="{% url 'sessions' module.id %}" role="button">Select</a>
                     </td>
                 </tr>
                 {% endfor %}
